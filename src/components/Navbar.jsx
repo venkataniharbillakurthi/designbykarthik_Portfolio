@@ -1,85 +1,130 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "HOME", href: "#home" },
+  { label: "ABOUT", href: "#about" },
+  { label: "PROJECT", href: "#projects" },
+  { label: "SERVICES", href: "#services" },
 ];
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
+  const [activeTab, setActiveTab] = useState("HOME");
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  // Close mobile menu on resize to prevent layout glitches
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const handleResize = () => {
+      if (window.innerWidth > 768) setMobileOpen(false);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass-strong shadow-lg" : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
-        <a href="#home" className="font-display text-xl md:text-2xl font-bold text-gradient">
-          designbyKarthik
-        </a>
-
-        <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="font-body text-sm text-muted-foreground hover:text-primary transition-colors duration-300 tracking-wide"
-            >
-              {item.label}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            className="px-5 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity"
-          >
-            Hire Me
-          </a>
+    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center items-center h-20 md:h-24 px-6 md:px-10 bg-black">
+      <div className="w-full max-w-7xl flex items-center justify-between">
+        
+        {/* Logo Section */}
+        <div className="flex items-center gap-2">
+          <img 
+            src="https://res.cloudinary.com/dhzhuobu2/image/upload/v1773484749/Star_1_vbubbg.png" 
+            alt="star" 
+            className="w-5 h-5 md:w-6 md:h-6"
+          />
+          <span className="text-white text-xl md:text-2xl tracking-tight font-Bricolage Grotesque - SemiBold">
+            karthik.
+          </span>
         </div>
 
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
-        >
-          <span className={`w-6 h-0.5 bg-foreground transition-all ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`w-6 h-0.5 bg-foreground transition-all ${mobileOpen ? "opacity-0" : ""}`} />
-          <span className={`w-6 h-0.5 bg-foreground transition-all ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-        </button>
-      </div>
-
-      {mobileOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="md:hidden glass-strong px-6 py-6 flex flex-col gap-4"
-        >
+        {/* Desktop Pill Navigation */}
+        <div className="hidden md:flex items-center bg-white rounded-full p-1 relative">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              onClick={() => setMobileOpen(false)}
-              className="font-body text-foreground hover:text-primary transition-colors"
+              onClick={() => setActiveTab(item.label)}
+              className={`relative px-6 py-2 text-[10px] font-bold tracking-widest transition-colors duration-300 z-10 font-Bricolage Grotesque - SemiBold ${
+                activeTab === item.label ? "text-white" : "text-black"
+              }`}
             >
+              {activeTab === item.label && (
+                <motion.div
+                  layoutId="active-pill"
+                  className="absolute inset-0 bg-black rounded-full -z-10"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
               {item.label}
             </a>
           ))}
-        </motion.div>
-      )}
-    </motion.nav>
+        </div>
+
+        {/* Right Section: Button & Mobile Toggle */}
+        <div className="flex items-center gap-4">
+          <a
+            href="#contact"
+            className="hidden sm:block px-6 md:px-8 py-2 md:py-3 rounded-full bg-white text-black text-[11px] md:text-xs font-bold hover:bg-gray-200 transition-colors uppercase font-Bricolage Grotesque - SemiBold"
+          >
+            Contact
+          </a>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5 z-50"
+          >
+            <motion.span 
+              animate={mobileOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+              className="w-6 h-0.5 bg-white block" 
+            />
+            <motion.span 
+              animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
+              className="w-6 h-0.5 bg-white block" 
+            />
+            <motion.span 
+              animate={mobileOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+              className="w-6 h-0.5 bg-white block" 
+            />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Dropdown Menu */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="absolute top-20 left-0 right-0 bg-black border-t border-white/10 px-6 py-8 md:hidden flex flex-col gap-6 items-center overflow-hidden"
+          >
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={() => {
+                  setActiveTab(item.label);
+                  setMobileOpen(false);
+                }}
+                className={`text-sm font-bold tracking-[0.2em] font-Bricolage Grotesque - SemiBold ${
+                  activeTab === item.label ? "text-white underline underline-offset-8" : "text-gray-400"
+                }`}
+              >
+                {item.label}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              onClick={() => setMobileOpen(false)}
+              className="w-full text-center py-4 rounded-full bg-white text-black font-bold text-sm uppercase font-Bricolage Grotesque - SemiBold"
+            >
+              Contact
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
   );
 };
 

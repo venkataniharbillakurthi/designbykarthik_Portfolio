@@ -5,82 +5,118 @@ const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const features = [
+    {
+      title: "Strategy First",
+      description: "Every design starts with understanding the business, audience, and goal - not just visuals.",
+    },
+    {
+      title: "Built For Impact",
+      description: "Designs that capture attention, communicate clearly, and drive action.",
+    },
+    {
+      title: "Growth Focused",
+      description: "From branding to digital, everything is crafted to support real business growth.",
+    },
+  ];
+
   return (
-    <section id="about" className="relative noise-bg" ref={ref}>
-      <div className="section-padding max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
+    <section id="about" className="relative bg-white py-20 overflow-hidden" ref={ref}>
+      {/* Container: No right padding to allow image to touch the edge */}
+      <div className="max-w-[1440px] ml-auto pl-6 md:pl-6">
+        
+        {/* TOP SECTION: BIG BOLD HEADLINE */}
+        <motion.h2 
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="grid md:grid-cols-2 gap-12 md:gap-20 items-center"
+          className="uppercase mb-12 text-black tracking-normal"
+          style={{
+            fontFamily: "Impact, sans-serif",
+            fontSize: "clamp(40px, 5vw, 50px)",
+            lineHeight: "1.2",
+          }}
         >
-          <div className="relative group">
-            <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <div className="relative glass rounded-2xl p-2 hover-lift">
-              <img
-                src="https://designbykarthik.github.io/Portfolio/profile_img.jpg"
-                alt="Karthik Beera - UI/UX Designer"
-                className="w-full aspect-square object-cover rounded-xl"
-              />
-            </div>
+          Design that delivers, not just decorates.
+        </motion.h2>
+
+        {/* MAIN CONTENT GRID */}
+        <div className="flex flex-col md:flex-row justify-between items-start gap-10">
+          
+          {/* LEFT COLUMN: FEATURES */}
+          <div className="w-full md:w-[45%] space-y-16 ">
+            {features.map((feature, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, x: -30 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ delay: 0.2 * index, duration: 0.6 }}
+                className="border-b-[1.5px] border-black/20 pb-8"
+              >
+                <h3 className="text-3xl font-bold text-black mb-3">{feature.title}</h3>
+                <p className="text-black text-xl   max-w-md">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
 
-          <div>
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="text-primary font-body text-sm tracking-[0.3em] uppercase"
+          {/* RIGHT COLUMN: TOUCHES RIGHT MARGIN */}
+          <div className="w-full md:w-[50%] flex flex-col items-start">
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="w-full"
             >
-              About Me
-            </motion.span>
+              {/* Profile Image with Signature Crop - Flush to right */}
+              <div className="rounded-tl-[120px] md:rounded-tl-[180px] overflow-hidden w-full aspect-[4/3] mt-[-120px]">
+                <img
+                  src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774001475/IMAGE_jx5mts.png"
+                  alt="Karthik Beera"
+                  className="w-full h-full object-cover"
+                />
+              </div>
 
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="font-display text-3xl md:text-5xl font-bold text-gradient-subtle mt-3 mb-6"
-            >
-              Crafting Digital Experiences
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="text-muted-foreground font-body leading-relaxed text-base md:text-lg"
-            >
-              I am a passionate and creative graphic designer with a keen eye for detail and a strong foundation in visual communication. Specializing in brand identity, digital design, and illustration, I craft compelling visual solutions that effectively communicate messages and engage audiences.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.7, duration: 0.6 }}
-              className="text-muted-foreground font-body leading-relaxed text-base md:text-lg mt-4"
-            >
-              My expertise includes Adobe Creative Suite — particularly Photoshop, Illustrator, and InDesign — and I continuously explore new trends to push creative boundaries.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.9, duration: 0.6 }}
-              className="flex gap-8 mt-8"
-            >
-              {[
-                { num: "50+", label: "Projects" },
-                { num: "30+", label: "Happy Clients" },
-                { num: "3+", label: "Years Exp." },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <span className="font-display text-2xl md:text-3xl font-bold text-gradient">{stat.num}</span>
-                  <p className="text-muted-foreground text-xs mt-1 tracking-wider uppercase">{stat.label}</p>
+              {/* HELLO BLOCK - Indented slightly from the image edge for better rhythm */}
+              <div className="mt-5 px-4 md:px-0">
+                <div className="flex flex-col md:flex-row md:items-end gap-8">
+                  <h1 
+                    className="text-black uppercase leading-[0.8]"
+                    style={{
+                      fontFamily: "Impact, sans-serif",
+                      fontSize: "clamp(80px, 10vw, 100px)",
+                    }}
+                  >
+                    HELLO!
+                  </h1>
+                  <div className="">
+                    <p className="text-3xl md:text-4xl font-black text-black leading-none pt-">I’m Karthik</p>
+                    <p className="text-sm md:text-base font-bold text-black uppercase tracking-widest ">
+                      Brand & Visual Designer
+                    </p>
+                  </div>
                 </div>
-              ))}
+
+                {/* BIO DESCRIPTION */}
+                <motion.p 
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : {}}
+                  transition={{ delay: 0.8 }}
+                  className="text-black mt-4 max-w-[578px] text-xl"
+                  style={{
+                    fontFamily: "'Montserrat', sans-serif",
+                    
+                    lineHeight: "1.4",
+                  }}
+                >
+                  Helping businesses build strong brands and high-impact visuals that drive growth.
+                </motion.p>
+              </div>
             </motion.div>
           </div>
-        </motion.div>
+          
+        </div>
       </div>
     </section>
   );
