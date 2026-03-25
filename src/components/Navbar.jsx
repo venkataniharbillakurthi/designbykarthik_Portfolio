@@ -28,7 +28,7 @@ const Navbar = () => {
         {/* Logo Section */}
         <div className="flex items-center gap-2">
           <img 
-            src="https://res.cloudinary.com/dhzhuobu2/image/upload/v1773484749/Star_1_vbubbg.png" 
+            src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774430925/Star_1_ymmnal.png" 
             alt="star" 
             className="w-5 h-5 md:w-6 md:h-6"
           />
@@ -45,13 +45,13 @@ const Navbar = () => {
               href={item.href}
               onClick={() => setActiveTab(item.label)}
               className={`relative px-6 py-2 text-[10px] font-bold tracking-widest transition-colors duration-300 z-10 font-Bricolage Grotesque - SemiBold ${
-                activeTab === item.label ? "text-white" : "text-black"
+                activeTab === item.label ? "text-black" : "text-black"
               }`}
             >
               {activeTab === item.label && (
                 <motion.div
                   layoutId="active-pill"
-                  className="absolute inset-0 bg-black rounded-full -z-10"
+                  className="absolute inset-0 bg-[#A1FF00] rounded-full -z-10"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}
