@@ -31,23 +31,28 @@ const CategoriesSection = () => {
   return (
     <section 
       ref={ref}
-      className="bg-black text-white py-24 px-6 overflow-hidden"
+      className="bg-black text-white py-16 md:py-24 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
-        {/* Header with Background Border Image */}
-        <div className="relative flex justify-center items-center mb-32">
+      {/* Container Adjustment: 
+        Added pl-10 (Mobile) and md:px-12 (Desktop) to create the left space.
+        max-w-[1200px] ensures it stays centered and tight on desktop.
+      */}
+      <div className="max-w-[1100px] mx-auto pl-10 pr-6 md:px-12">
+        
+        {/* Header Section */}
+        <div className="relative flex justify-center items-center mb-16 md:mb-28">
           <img 
             src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774430925/Group_43_lggt9w.png" 
             alt="border"
-            className="absolute w-full max-w-[900px] h-auto object-contain"
+            className="absolute w-[130%] md:w-full max-w-[900px] h-auto object-contain opacity-80 md:opacity-100"
           />
           <h2 
-            className="relative z-10 text-[#A3FF00] uppercase"
+            className="relative z-10 text-[#A3FF00] uppercase tracking-tight"
             style={{
               fontFamily: "Montserrat, sans-serif",
               fontWeight: 700,
-              fontSize: "clamp(32px, 5vw, 58px)",
-              lineHeight: "100px",
+              fontSize: "clamp(20px, 5vw, 44px)",
+              lineHeight: "1.2",
               textAlign: "center",
             }}
           >
@@ -55,57 +60,55 @@ const CategoriesSection = () => {
           </h2>
         </div>
 
-        {/* Categories Grid */}
-        <div className="grid md:grid-cols-2 gap-x-20 gap-y-32">
+        {/* Categories Grid - Centered via mx-auto on the parent */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-12 md:gap-y-24">
           {categories.map((cat, index) => (
             <motion.div 
               key={index}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: index * 0.1, duration: 0.8 }}
-              className="flex items-start gap-8"
+              className="flex flex-row items-start gap-4 md:gap-8"
             >
               {/* Big Number */}
               <span 
-                className="text-white select-none"
+                className="text-white select-none leading-[0.7] md:leading-[0.8]"
                 style={{
                   fontFamily: "Montserrat, sans-serif",
                   fontWeight: 700,
-                  fontSize: "clamp(120px, 15vw, 230px)",
-                  lineHeight: "0.8",
+                  fontSize: "clamp(70px, 15vw, 150px)",
                 }}
               >
                 {cat.num}
               </span>
 
               {/* Content Block */}
-              <div className="pt-4">
+              <div className="pt-2 md:pt-4">
                 <h3 
-                  className="text-[#A3FF00] uppercase mb-4"
+                  className="text-[#A3FF00] uppercase mb-3 md:mb-5"
                   style={{
                     fontFamily: "Montserrat, sans-serif",
                     fontWeight: 700,
-                    fontSize: "clamp(30px, 4vw, 50px)",
+                    fontSize: "clamp(20px, 4vw, 36px)",
                     lineHeight: "1",
-                    textAlign: "left",
                   }}
                 >
                   {cat.title}
                 </h3>
-                <ul className="space-y-2">
+                
+                <ul className="space-y-1.5 md:space-y-3">
                   {cat.items.map((item, i) => (
                     <li 
                       key={i}
-                      className="text-white uppercase flex items-center gap-2"
+                      className="text-white/90 uppercase flex items-center gap-2"
                       style={{
                         fontFamily: "Montserrat, sans-serif",
                         fontWeight: 400,
-                        fontSize: "26px",
-                        lineHeight: "35px",
+                        fontSize: "clamp(14px, 2vw, 18px)",
                         fontVariant: "small-caps",
                       }}
                     >
-                      <span className="text-[#A3FF00] text-xl">•</span>
+                      <span className="text-[#A3FF00] text-lg select-none">•</span>
                       {item}
                     </li>
                   ))}

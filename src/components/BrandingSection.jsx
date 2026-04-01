@@ -13,18 +13,19 @@ const BrandingSection = () => {
   ];
 
   return (
-    <section id="branding" className="bg-white py-16 px-6 md:px-24 -ml-20" ref={ref}>
+    <section id="branding" className="bg-white py-12 md:py-16 px-6 md:px-24 md:-ml-20 overflow-hidden" ref={ref}>
       <div className="max-w-[1280px] mx-auto relative">
-        <div className="grid md:grid-cols-12 gap-6 items-center">
+        {/* Changed to flex-col-reverse on mobile to put text (Right Column) first */}
+        <div className="flex flex-col-reverse md:grid md:grid-cols-12 gap-10 md:gap-6 items-center">
           
-          {/* LEFT: PRIMARY BRANDING MOODBOARD */}
+          {/* LEFT COLUMN: MOODBOARD (Appears second on mobile) */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="md:col-span-6"
+            className="md:col-span-6 w-full"
           >
-            <div className="rounded-[24px]  p-4">
+            <div className="rounded-[24px] overflow-hidden">
               <img 
                 src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774431619/ViQantAI_Moodboard_1_1_ccwnrf.png" 
                 alt="ViQantAI Moodboard" 
@@ -33,26 +34,26 @@ const BrandingSection = () => {
             </div>
           </motion.div>
 
-          {/* RIGHT: CONTENT & MOCKUPS */}
-          <div className="md:col-span-6 flex flex-col h-full justify-between relative ">
+          {/* RIGHT COLUMN: CONTENT & MOCKUPS (Appears first on mobile) */}
+          <div className="md:col-span-6 flex flex-col h-full justify-between relative w-full">
             <div>
               {/* Header Text */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2 }}
-                className="mb-10"
+                className="mb-8 md:mb-10"
               >
-                <h1 className="font-bold text-black tracking-tighter leading-none" style={{ fontSize: 'clamp(60px, 10vw, 100px)' }}>
+                <h1 className="font-bold text-black tracking-tighter leading-none mb-4" style={{ fontSize: 'clamp(50px, 10vw, 100px)' }}>
                   BRANDING
                 </h1>
-                <p className="text-gray-500  md:text-[16px] mt-3 font-medium ">
+                <p className="text-gray-500 text-lg md:text-[16px] font-medium">
                   Logos, identity systems, and visual direction for modern brands.
                 </p>
               </motion.div>
 
               {/* Mockup Image Grid */}
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 gap-4 md:gap-6">
                 {mockups.map((url, i) => (
                   <motion.div 
                     key={i}
@@ -67,34 +68,33 @@ const BrandingSection = () => {
               </div>
             </div>
 
-            {/* REFINED ARROW BUTTON: Centered and Aligned Right */}
+            {/* ARROW BUTTON: hidden on mobile, flex on desktop */}
             <motion.div 
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ delay: 0.8 }}
-              className="absolute bottom-10 right-0 md:-right-20"
+              className="hidden md:flex absolute bottom-10 -right-20"
             >
               <div className="relative cursor-pointer hover:scale-110 transition-transform flex items-center justify-center">
                 <img 
                   src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774431617/Button_18_1_w7jewn.png" 
                   alt="Navigation Arrow" 
-                  className="w-32 h-32 md:w-16 md:h-9"
+                  className="md:w-16 md:h-10"
                 />
               </div>
             </motion.div>
           </div>
         </div>
 
-        <div className="mt-14 relative h-10 w-screen left-2/2 ">
-        <div className="absolute right-0 w-[85%] flex items-center">
-          <img 
-            src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774431617/Line_299_wbbpgf.png" 
-            alt="Timeline" 
-            className="w-full h-auto opacity-80"
-          />
-          
-          
-        </div>
+        {/* TIMELINE */}
+        <div className="mt-16 md:mt-14 relative h-10 w-screen left-1/2 -translate-x-1/2 overflow-hidden">
+          <div className="absolute left-0 w-[90%] md:w-[85%] flex items-center">
+            <img 
+              src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774431617/Line_299_wbbpgf.png" 
+              alt="Timeline" 
+              className="w-full h-auto opacity-80 scale-x-[-1]"
+            />
+          </div>
         </div>
       </div>
     </section>
