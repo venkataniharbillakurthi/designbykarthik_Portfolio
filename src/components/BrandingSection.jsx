@@ -13,8 +13,8 @@ const BrandingSection = () => {
   ];
 
   return (
-    <section id="branding" className="bg-white py-12 md:py-16 px-6 md:px-24 md:-ml-20 overflow-hidden" ref={ref}>
-      <div className="max-w-[1280px] mx-auto relative">
+    <section id="branding" className="bg-white py-12 md:py-16 px-6 md:px-14  overflow-hidden" ref={ref}>
+      <div className="max-w-[1400px] mx-auto relative">
         {/* Changed to flex-col-reverse on mobile to put text (Right Column) first */}
         <div className="flex flex-col-reverse md:grid md:grid-cols-12 gap-10 md:gap-6 items-center">
           
@@ -25,7 +25,7 @@ const BrandingSection = () => {
             transition={{ duration: 0.8 }}
             className="md:col-span-6 w-full"
           >
-            <div className="rounded-[24px] overflow-hidden">
+            <div className="rounded-[24px] ">
               <img 
                 src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774431619/ViQantAI_Moodboard_1_1_ccwnrf.png" 
                 alt="ViQantAI Moodboard" 
@@ -53,7 +53,7 @@ const BrandingSection = () => {
               </motion.div>
 
               {/* Mockup Image Grid */}
-              <div className="grid grid-cols-2 gap-4 md:gap-6">
+              <div className="grid grid-cols-2 gap-4 md:gap-8">
                 {mockups.map((url, i) => (
                   <motion.div 
                     key={i}
@@ -68,21 +68,7 @@ const BrandingSection = () => {
               </div>
             </div>
 
-            {/* ARROW BUTTON: hidden on mobile, flex on desktop */}
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.8 }}
-              className="hidden md:flex absolute bottom-10 -right-20"
-            >
-              <div className="relative cursor-pointer hover:scale-110 transition-transform flex items-center justify-center">
-                <img 
-                  src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774431617/Button_18_1_w7jewn.png" 
-                  alt="Navigation Arrow" 
-                  className="md:w-16 md:h-10"
-                />
-              </div>
-            </motion.div>
+            
           </div>
         </div>
 

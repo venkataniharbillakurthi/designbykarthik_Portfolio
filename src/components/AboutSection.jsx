@@ -88,7 +88,7 @@ const AboutSection = () => {
                 <div className="flex items-center gap-4">
                   {[
                     "https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774249019/Frame_45_uo58gy.png",
-                    "https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774249019/Frame_45_1_y6i24r.png"
+                    "https://res.cloudinary.com/dn9lv7p7d/image/upload/q_auto/f_auto/v1775287725/Frame_43_tohnlk.png"
                   ].map((src, i) => (
                     <img key={i} src={src} alt="Design tool" className="w-10 h-10 md:w-12 md:h-12 object-contain" />
                   ))}

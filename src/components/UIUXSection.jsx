@@ -9,19 +9,19 @@ const UIUXSection = () => {
   const projects = [
     {
       id: 'left',
-      url: "https://res.cloudinary.com/dn9lv7p7d/image/upload/q_auto/f_auto/v1775046747/Rectangle_26_wlo9av.png",
+      url: "https://res.cloudinary.com/dn9lv7p7d/image/upload/q_auto/f_auto/v1775286703/Rectangle_26_b2ewpz.png",
       className: "absolute left-0 bottom-0 w-[38%] z-10",
       initial: { opacity: 0, x: -80 },
     },
     {
       id: 'right',
-      url: "https://res.cloudinary.com/dn9lv7p7d/image/upload/q_auto/f_auto/v1775046747/Rectangle_27_ywnlts.png",
+      url: "https://res.cloudinary.com/dn9lv7p7d/image/upload/q_auto/f_auto/v1775286703/Rectangle_28_g40ujs.png",
       className: "absolute right-0 bottom-0 w-[38%] z-10",
       initial: { opacity: 0, x: 80 },
     },
     {
       id: 'middle',
-      url: "https://res.cloudinary.com/dn9lv7p7d/image/upload/q_auto/f_auto/v1775046748/Rectangle_25_szms8t.png",
+      url: "https://res.cloudinary.com/dn9lv7p7d/image/upload/q_auto/f_auto/v1775286703/Rectangle_25_arwn1e.png",
       className: "relative mx-auto w-[48%] z-30", 
       initial: { opacity: 0, y: 50 },
     },
@@ -32,10 +32,13 @@ const UIUXSection = () => {
       <div className="max-w-[1400px] mx-auto relative">
         
         {/* Title Header - Reduced margin bottom from mb-20 to mb-8 */}
-        <div className="text-center mb-6 md:mb-8">
+        <div className="text-center mb-6 md:mb-12">
           <h1 className="font-bold text-black tracking-tighter"  style={{ fontSize: 'clamp(50px, 10vw, 100px)'}}>
             UI/UX DESIGN
           </h1>
+          <p className="text-gray-800 text-lg md:text-xl font-medium leading-relaxed">
+              Designing intuitive, user-focused interfaces that deliver seamless digital experiences.
+            </p>
         </div>
 
         {/* Overlapping Images Container - Reduced min-height values to pull images up */}
@@ -51,7 +54,7 @@ const UIUXSection = () => {
               onClick={() => setSelectedImage(project.url)}
             >
               <motion.div 
-                whileHover={{ y: -15 }}
+               
                 className="transition-all duration-300"
               >
                 <img 
@@ -64,32 +67,7 @@ const UIUXSection = () => {
           ))}
         </div>
 
-        {/* Footer Content Area */}
-        <div className="relative flex flex-col md:flex-row items-center md:items-end justify-between gap-8 mt-10">
           
-          {/* Left-aligned Description */}
-          <div className="md:w-3/4">
-            <p className="text-gray-800 text-lg md:text-xl font-medium leading-relaxed">
-              Designing intuitive, user-focused interfaces that deliver seamless digital experiences.
-            </p>
-          </div>
-
-          {/* RIGHT-ALIGNED NAVIGATION ARROW */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.8 }}
-            className="hidden md:flex absolute right-0 md:-right-0"
-          >
-            <div className="relative cursor-pointer hover:scale-110 transition-transform flex items-center justify-center">
-              <img 
-                src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774431617/Button_18_1_w7jewn.png" 
-                alt="Navigation Arrow" 
-                className="md:w-16 md:h-10"
-              />
-            </div>
-          </motion.div>
-        </div>
 
         {/* UPDATED FULL-WIDTH TIMELINE LINE */}
         <div className="mt-16 md:mt-14 relative h-10 w-screen right-1/2 translate-x-1/2 overflow-hidden">
