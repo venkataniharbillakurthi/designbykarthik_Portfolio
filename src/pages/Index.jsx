@@ -17,7 +17,7 @@ const Index = () => {
       <CategoriesSection />
       <BrandingSection />
       <SocialMediaSection />
-      {/* <UIUXSection /> */}
+       <UIUXSection />
     </div>
   );
 };

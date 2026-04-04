@@ -22,7 +22,7 @@ const SocialMediaSection = () => {
   ];
 
   return (
-    <section id="social-media" className="relative bg-white  overflow-hidden">
+    <section id="social-media" className="relative bg-white  overflow-hidden ">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
         
         {/* Top Typography Header */}
@@ -55,11 +55,11 @@ const SocialMediaSection = () => {
             {/* Right Row 1: Triple Post Grid */}
             <div className="grid grid-cols-3 gap-2 items-end">
               {postGridImages.map((src, index) => (
-                <div key={index} className={`rounded-[12px] md:rounded-[20px] overflow-hidden ${index === 0 ? 'scale-90 origin-bottom' : ''} ${index === 1 ? 'scale-95 origin-bottom' : ''}`}>
+                <div key={index} className={`rounded-[12px] md:rounded-[20px] overflow-hidden ${index === 0 ? 'scale-90 origin-bottom' : ''} ${index === 1 ? 'scale-95 origin-bottom' : ''}`} >
                   <img 
                     src={src} 
                     alt={`Social Post ${index + 1}`} 
-                    className="w-full h-auto object-contain"
+                    className="w-full h-auto object-contain drop-shadow-base"
                   />
                 </div>
               ))}
@@ -109,7 +109,7 @@ const SocialMediaSection = () => {
         </div>
 
         {/* BOTTOM TIMELINE / LINE */}
-        <div className="mt-12 md:mt-14 relative h-10 w-screen left-1/2 -translate-x-1/2 overflow-hidden">
+        <div className="mt-12 md:mt-14  relative h-10 w-screen left-1/2 -translate-x-1/2 overflow-hidden">
           <div className="absolute left-0 w-[95%] md:w-[85%] flex items-center">
             <img 
               src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774431617/Line_299_wbbpgf.png" 

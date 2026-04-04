@@ -87,12 +87,12 @@ const BrandingSection = () => {
         </div>
 
         {/* TIMELINE */}
-        <div className="mt-16 md:mt-14 relative h-10 w-screen left-1/2 -translate-x-1/2 overflow-hidden">
-          <div className="absolute left-0 w-[90%] md:w-[85%] flex items-center">
+        <div className="mt-16 md:mt-14 relative h-10 w-screen right-1/2 translate-x-1/2 overflow-hidden">
+          <div className="absolute right-0 w-[90%] md:w-[85%] flex items-center">
             <img 
               src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774431617/Line_299_wbbpgf.png" 
               alt="Timeline" 
-              className="w-full h-auto opacity-80 scale-x-[-1]"
+              className="w-full h-auto opacity-80 scale-x-[1]"
             />
           </div>
         </div>
