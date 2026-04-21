@@ -21,7 +21,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="relative bg-white py-20 overflow-hidden" ref={ref}>
+    <section id="about" className="relative bg-white py-10 overflow-hidden" ref={ref}>
       {/* Full-width container keeps right image untouched and left content responsive */}
       <div className="w-full pl-6 md:pl-10 lg:pl-16">
         
@@ -30,11 +30,13 @@ const AboutSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="uppercase mb-10 text-black tracking-normal"
+          className="text-black text-[40px] leading-[56px] md:text-[55px] md:leading-[80px] sm:mb-2 mb-1"
           style={{
             fontFamily: "Impact, sans-serif",
-            fontSize: "clamp(40px, 5vw, 50px)",
-            lineHeight: "1.1",
+            fontWeight: 400,
+            fontStyle: "normal",
+            letterSpacing: "0%",
+            textTransform: "uppercase",
           }}
         >
           Design that delivers, not just decorates.
