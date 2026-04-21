@@ -4,8 +4,24 @@ const HeroSection = () => {
   return (
     <section 
       id="home" 
-      className="relative min-h-screen flex flex-col items-center justify-center bg-black text-white px-6 overflow-hidden"
+      className="relative min-h-screen -mt-20 md:-mt-24 flex flex-col items-center justify-center text-white px-6 overflow-hidden"
     >
+      <div
+        className="absolute inset-0 bg-center bg-cover bg-no-repeat md:hidden"
+        style={{
+          backgroundImage:
+            'url("https://res.cloudinary.com/dn9lv7p7d/image/upload/q_auto/f_auto/v1776332292/iPhone_16_17_Pro_-_2_2_alqdfx.png")',
+        }}
+      />
+      <div
+        className="absolute inset-0 hidden bg-center bg-cover bg-no-repeat md:block"
+        style={{
+          backgroundImage:
+            'url("https://res.cloudinary.com/dn9lv7p7d/image/upload/q_auto/f_auto/v1776331946/SECTION_1_dxiha0.png")',
+        }}
+      />
+      <div className="absolute inset-0 bg-black/35" />
+
       {/* Background Subtle Gradient Blobs (Optional - keep for depth or remove for pure black) */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -15,7 +31,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] font-Bricolage Grotesque - SemiBold"
+          className="text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight leading-[1.1] font-Bricolage Grotesque - SemiBold"
         >
           Built to <span className="text-[#A1FF00]">stand out</span>. Not to blend in.
         </motion.h1>

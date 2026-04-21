@@ -70,7 +70,7 @@ const UIUXSection = () => {
           
 
         {/* UPDATED FULL-WIDTH TIMELINE LINE */}
-        <div className="mt-16 md:mt-14 relative h-10 w-screen right-1/2 translate-x-1/2 overflow-hidden">
+        <div className="mt-16 md:mt-14 relative h-10 w-full overflow-hidden">
           <div className="absolute right-0 w-[90%] md:w-[85%] flex items-center">
             <img 
               src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774431617/Line_299_wbbpgf.png" 

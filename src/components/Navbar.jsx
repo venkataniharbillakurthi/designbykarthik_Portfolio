@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 const navItems = [
   { label: "HOME", href: "#home" },
   { label: "ABOUT", href: "#about" },
-  { label: "PROJECT", href: "#projects" },
-  { label: "SERVICES", href: "#services" },
+  { label: "PROJECT", href: "#branding" },
+  { label: "SERVICES", href: "#social-media" },
 ];
 
 const Navbar = () => {
@@ -21,8 +21,36 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Sync active tab with currently visible section
+  useEffect(() => {
+    const sections = navItems
+      .map((item) => document.querySelector(item.href))
+      .filter(Boolean);
+
+    if (!sections.length) return undefined;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (!visible) return;
+        const match = navItems.find((item) => item.href === `#${visible.target.id}`);
+        if (match) setActiveTab(match.label);
+      },
+      {
+        threshold: [0.35, 0.55, 0.75],
+        rootMargin: "-15% 0px -45% 0px",
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center items-center h-20 md:h-24 px-6 md:px-10 bg-black">
+    <nav className="relative z-50 flex justify-center items-center h-20 md:h-24 px-6 md:px-10 ">
       <div className="w-full max-w-7xl flex items-center justify-between">
         
         {/* Logo Section */}
@@ -63,10 +91,12 @@ const Navbar = () => {
         {/* Right Section: Button & Mobile Toggle */}
         <div className="flex items-center gap-4">
           <a
-            href="#contact"
+            href="https://wa.me/919381726944?text=Hello%20Karthik"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden sm:block px-6 md:px-8 py-2 md:py-3 rounded-full bg-white text-black text-[11px] md:text-xs font-bold hover:bg-gray-200 transition-colors uppercase font-Bricolage Grotesque - SemiBold"
           >
-            Contact
+            Say Hello
           </a>
 
           {/* Mobile Menu Button */}
@@ -115,11 +145,13 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="#contact"
+              href="https://wa.me/919381726944?text=Hello%20Karthik"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
               className="w-full text-center py-4 rounded-full bg-white text-black font-bold text-sm uppercase font-Bricolage Grotesque - SemiBold"
             >
-              Contact
+              Say Hello
             </a>
           </motion.div>
         )}

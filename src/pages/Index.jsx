@@ -8,6 +8,9 @@ import CategoriesSection from "@/components/CategoriesSection";
 import BrandingSection from "@/components/BrandingSection";
 import SocialMediaSection from "@/components/SocialMediaSection";
 import UIUXSection from "@/components/UIUXSection";
+import PrintMediaPortfolio from "@/components/PrintMediaPortfolio";
+import ExperiencePresence from "@/components/ExperiencePresence";
+import Footer from "@/components/footer";
 const Index = () => {
   return (
     <div className="bg-background text-foreground min-h-screen">
@@ -18,6 +21,9 @@ const Index = () => {
       <BrandingSection />
       <SocialMediaSection />
        <UIUXSection />
+       <PrintMediaPortfolio />
+       <ExperiencePresence />
+       <Footer />
     </div>
   );
 };

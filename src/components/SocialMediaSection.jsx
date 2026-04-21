@@ -94,7 +94,7 @@ const SocialMediaSection = () => {
           </div>
         </div>
 
-        <div className="mt-12 md:mt-14 relative h-10 w-screen left-1/2 -translate-x-1/2 overflow-hidden">
+        <div className="mt-12 md:mt-14 relative h-10 w-full overflow-hidden">
           <div className="absolute left-0 w-[95%] md:w-[85%] flex items-center">
             <img 
               src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774431617/Line_299_wbbpgf.png" 
