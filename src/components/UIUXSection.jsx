@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 
 const UIUXSection = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [activeMobileProject, setActiveMobileProject] = useState("middle");
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
@@ -32,8 +33,8 @@ const UIUXSection = () => {
       <div className="max-w-[1400px] mx-auto relative">
         
         {/* Title Header - Reduced margin bottom from mb-20 to mb-8 */}
-        <div className="text-center mb-6 md:mb-12">
-          <h1 className="font-bold text-black tracking-tighter"  style={{ fontSize: 'clamp(50px, 10vw, 100px)'}}>
+        <div className=" text-left md:text-left lg:text-right">
+          <h1 className="font-bold text-black tracking-tighter"  style={{ fontSize: 'clamp(40px, 8vw, 80px)'}}>
             UI/UX DESIGN
           </h1>
           <p className="text-gray-800 text-lg md:text-xl font-medium leading-relaxed">
@@ -41,8 +42,51 @@ const UIUXSection = () => {
             </p>
         </div>
 
-        {/* Overlapping Images Container - Reduced min-height values to pull images up */}
-        <div className="relative flex items-end justify-center mb-12 md:mb-6 min-h-[250px] sm:min-h-[350px] md:min-h-[500px] lg:min-h-[550px]">
+        {/* Mobile gallery: one main image + selectable thumbnails */}
+        <div className="mb-10 md:hidden">
+          <motion.div
+            key={activeMobileProject}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35 }}
+            className="overflow-hidden rounded-[16px] border border-black/10 shadow-lg"
+            onClick={() =>
+              setSelectedImage(
+                projects.find((project) => project.id === activeMobileProject)?.url
+              )
+            }
+          >
+            <img
+              src={projects.find((project) => project.id === activeMobileProject)?.url}
+              alt="Selected UI/UX Layout"
+              className="w-full h-auto object-cover"
+            />
+          </motion.div>
+
+          <div className="mt-4 grid grid-cols-3 gap-3">
+            {projects.map((project) => (
+              <button
+                key={project.id}
+                type="button"
+                onClick={() => setActiveMobileProject(project.id)}
+                className={`overflow-hidden rounded-[10px] border transition-all ${
+                  activeMobileProject === project.id
+                    ? "border-black shadow-md"
+                    : "border-black/20 opacity-80"
+                }`}
+              >
+                <img
+                  src={project.url}
+                  alt={`${project.id} thumbnail`}
+                  className="w-full h-auto object-cover"
+                />
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop/tablet overlapping layout */}
+        <div className="relative hidden md:flex items-end justify-center mb-12 md:mb-6 min-h-[500px] lg:min-h-[550px]">
           {projects.map((project) => (
             <motion.div
               key={project.id}
@@ -70,7 +114,7 @@ const UIUXSection = () => {
           
 
         {/* UPDATED FULL-WIDTH TIMELINE LINE */}
-        <div className="mt-16 md:mt-14 relative h-10 w-full overflow-hidden">
+        <div className="mt-8 md:mt-10 relative h-10 w-full overflow-hidden">
           <div className="absolute right-0 w-[90%] md:w-[85%] flex items-center">
             <img 
               src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774431617/Line_299_wbbpgf.png" 

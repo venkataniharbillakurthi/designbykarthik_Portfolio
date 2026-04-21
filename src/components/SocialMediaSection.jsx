@@ -23,10 +23,10 @@ const SocialMediaSection = () => {
 
   return (
     <section id="social-media" className="relative bg-white overflow-hidden ">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      <div className="max-w-[1400px] mx-auto  px-4 md:px-12">
         
-        <div className="mb-10 md:mb-16 max-w-4xl">
-          <h1 className="font-bold text-black tracking-tighter leading-none" style={{ fontSize: 'clamp(50px, 10vw, 100px)'}}>
+        <div className=" max-w-4xl text-right md:text-right lg:text-left">
+          <h1 className="font-bold text-black tracking-tighter leading-none" style={{ fontSize: ' clamp(40px, 8vw, 80px)'}}>
             SOCIAL MEDIA
           </h1>
           <p className="text-gray-600 text-lg md:text-xl mt-4 font-medium">
@@ -94,7 +94,7 @@ const SocialMediaSection = () => {
           </div>
         </div>
 
-        <div className="mt-12 md:mt-14 relative h-10 w-full overflow-hidden">
+        <div className="mt-8 md:mt-10 relative h-10 w-full overflow-hidden">
           <div className="absolute left-0 w-[95%] md:w-[85%] flex items-center">
             <img 
               src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774431617/Line_299_wbbpgf.png" 

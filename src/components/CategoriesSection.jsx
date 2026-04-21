@@ -65,14 +65,14 @@ const CategoriesSection = () => {
         </div>
 
         {/* Categories Grid - Centered via mx-auto on the parent */}
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-x-14 gap-y-10 md:gap-y-16">
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-x-8 gap-y-6 md:gap-y-16">
           {categories.map((cat, index) => (
             <motion.div 
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: index * 0.1, duration: 0.8 }}
-              className="flex flex-row items-start gap-3 md:gap-6"
+              className="flex flex-row items-start gap-2 md:gap-6"
             >
               {/* Big Number */}
               <span 
@@ -87,9 +87,9 @@ const CategoriesSection = () => {
               </span>
 
               {/* Content Block */}
-              <div className="pt-1 md:pt-3">
+              <div className="pt-0 md:pt-3">
                 <h3 
-                  className="text-[#A3FF00] uppercase mb-2 md:mb-4"
+                  className="text-[#A3FF00] uppercase mb-1 md:mb-4"
                   style={{
                     fontFamily: "Montserrat, sans-serif",
                     fontWeight: 700,
@@ -100,11 +100,11 @@ const CategoriesSection = () => {
                   {cat.title}
                 </h3>
                 
-                <ul className="space-y-1 md:space-y-2">
+                <ul className="space-y-0.5 md:space-y-2">
                   {cat.items.map((item, i) => (
                     <li 
                       key={i}
-                      className="text-white/90 uppercase flex items-center gap-2"
+                      className="text-white/90 uppercase flex items-center gap-1"
                       style={{
                         fontFamily: "Montserrat, sans-serif",
                         fontWeight: 400,

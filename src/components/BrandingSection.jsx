@@ -13,7 +13,7 @@ const BrandingSection = () => {
   ];
 
   return (
-    <section id="branding" className="bg-white py-12 md:py-16 px-6 md:px-14  overflow-hidden" ref={ref}>
+    <section id="branding" className="bg-white py-10 md:py-10 px-4 md:px-12  overflow-hidden" ref={ref}>
       <div className="max-w-[1400px] mx-auto relative">
         {/* Changed to flex-col-reverse on mobile to put text (Right Column) first */}
         <div className="flex flex-col-reverse md:grid md:grid-cols-12 gap-10 md:gap-6 items-center">
@@ -42,9 +42,9 @@ const BrandingSection = () => {
                 initial={{ opacity: 0, y: 15 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2 }}
-                className="mb-8 md:mb-10"
+                className="mb-8 md:mb-10 text-left"
               >
-                <h1 className="font-bold text-black tracking-tighter leading-none mb-4" style={{ fontSize: 'clamp(50px, 10vw, 100px)' }}>
+                <h1 className="font-bold text-black tracking-tighter leading-none mb-4" style={{ fontSize: 'clamp(40px, 8vw, 80px)' }}>
                   BRANDING
                 </h1>
                 <p className="text-gray-500 text-lg md:text-[16px] font-medium">
@@ -73,7 +73,7 @@ const BrandingSection = () => {
         </div>
 
         {/* TIMELINE */}
-        <div className="mt-16 md:mt-14 relative h-10 w-full overflow-hidden">
+        <div className="mt-8 md:mt-10 relative h-10 w-full overflow-hidden">
           <div className="absolute right-0 w-[90%] md:w-[85%] flex items-center">
             <img 
               src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774431617/Line_299_wbbpgf.png" 

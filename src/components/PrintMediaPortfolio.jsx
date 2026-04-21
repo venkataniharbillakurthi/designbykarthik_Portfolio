@@ -10,11 +10,11 @@ const PrintMediaPortfolio = () => {
   };
 
   return (
-    <section className="overflow-hidden bg-white px-4 py-12 md:px-12 md:py-20">
+    <section className="overflow-hidden bg-white px-4  md:px-12 ">
       <div className="mx-auto max-w-[1400px]">
         
         {/* Header */}
-        <div className="mb-12 md:mb-16 text-center md:text-left">
+        <div className=" text-right md:text-right lg:text-left">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -26,7 +26,7 @@ const PrintMediaPortfolio = () => {
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mx-auto md:mx-0 max-w-3xl text-sm font-medium leading-relaxed text-black/70 md:text-[18px]"
+            className="ml-auto mr-0 max-w-3xl text-sm font-medium leading-relaxed text-black/70 md:text-[18px] lg:mx-0"
           >
             Designing high-impact print materials that communicate clearly and stand out in real spaces.
           </motion.p>
@@ -59,7 +59,7 @@ const PrintMediaPortfolio = () => {
             transition={{ delay: 0.2 }}
             className="w-[34%] z-20" 
           >
-            <div className="overflow-hidden rounded-[12px] md:rounded-[30px] border-[2px] md:border-4 border-[#4D9EF7] bg-white p-0.5 md:p-1 shadow-2xl">
+            <div className="overflow-hidden ">
               <img
                 src={images.centerBottomImageUrl}
                 alt="Center Project"
@@ -74,7 +74,7 @@ const PrintMediaPortfolio = () => {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="overflow-hidden rounded-[8px] md:rounded-[15px] border border-[#4D9EF7] shadow-lg"
+              className="overflow-hidden rounded-[8px] md:rounded-[15px] "
             >
               <img
                 src={images.rightTopImageUrl}
@@ -88,7 +88,7 @@ const PrintMediaPortfolio = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="overflow-hidden rounded-[8px] md:rounded-[15px] border border-[#4D9EF7] shadow-lg"
+              className="overflow-hidden rounded-[8px] md:rounded-[15px] "
             >
               <img
                 src={images.rightBottomImageUrl}
@@ -101,7 +101,7 @@ const PrintMediaPortfolio = () => {
         </div>
 
         {/* Timeline Footer */}
-        <div className="mt-16 md:mt-32 relative h-10 w-full overflow-hidden">
+        <div className="mt-8 md:mt-10 relative h-10 w-full overflow-hidden">
           <div className="absolute left-0 w-[95%] md:w-[85%] flex items-center">
             <img 
               src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774431617/Line_299_wbbpgf.png" 

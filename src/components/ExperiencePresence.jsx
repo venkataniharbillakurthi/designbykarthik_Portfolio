@@ -13,21 +13,21 @@ const ExperiencePresence = () => {
       platform: "Instagram",
       image:
         "https://res.cloudinary.com/dn9lv7p7d/image/upload/v1776410013/Group_66_smgsfx.png",
-      link: "https://instagram.com/designbykarthik",
+      link: "https://www.instagram.com/designbykarthik?igsh=OHFvOWhydG4yNXBo",
       
     },
     {
       platform: "LinkedIn",
       image:
         "https://res.cloudinary.com/dn9lv7p7d/image/upload/q_auto/f_auto/v1776410013/Group_69_g59twb.png",
-      link: "https://linkedin.com/in/karthikanandrajubeera",
+      link: "https://www.linkedin.com/in/karthik-anand-raju-b-5a5088212?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       
     },
     {
       platform: "Behance",
       image:
         "https://res.cloudinary.com/dn9lv7p7d/image/upload/q_auto/f_auto/v1776410013/Group_67_nal533.png",
-      link: "https://behance.net/designbykarthik",
+      link: "https://www.behance.net/designbykarthik1",
       
     },
   ];
