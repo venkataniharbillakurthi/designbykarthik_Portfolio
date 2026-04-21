@@ -21,6 +21,14 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Lock page scroll while fullscreen mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
   // Sync active tab with currently visible section
   useEffect(() => {
     const sections = navItems
@@ -120,39 +128,69 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Fullscreen Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="absolute top-20 left-0 right-0 bg-black border-t border-white/10 px-6 py-8 md:hidden flex flex-col gap-6 items-center overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md md:hidden"
           >
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={() => {
-                  setActiveTab(item.label);
-                  setMobileOpen(false);
-                }}
-                className={`text-sm font-bold tracking-[0.2em] font-Bricolage Grotesque - SemiBold ${
-                  activeTab === item.label ? "text-white underline underline-offset-8" : "text-gray-400"
-                }`}
-              >
-                {item.label}
-              </a>
-            ))}
-            <a
-              href="https://wa.me/919381726944?text=Hello%20Karthik"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMobileOpen(false)}
-              className="w-full text-center py-4 rounded-full bg-white text-black font-bold text-sm uppercase font-Bricolage Grotesque - SemiBold"
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(161,255,0,0.14),transparent_55%)] pointer-events-none" />
+            <motion.div
+              initial={{ y: 24, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 24, opacity: 0 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="h-full pt-28 pb-10 px-8 flex flex-col items-center justify-center gap-8"
             >
-              Say Hello
-            </a>
+              <div className="flex items-center gap-2 mb-2">
+                <img
+                  src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1774430925/Star_1_ymmnal.png"
+                  alt="star"
+                  className="w-5 h-5"
+                />
+                <span className="text-white text-xl tracking-tight font-Bricolage Grotesque - SemiBold">
+                  karthik.
+                </span>
+              </div>
+
+              {navItems.map((item, index) => (
+                <motion.a
+                  key={item.label}
+                  href={item.href}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.05 * index, duration: 0.25 }}
+                  onClick={() => {
+                    setActiveTab(item.label);
+                    setMobileOpen(false);
+                  }}
+                  className={`w-full max-w-xs text-center px-6 py-3 rounded-full border text-sm tracking-[0.2em] font-bold uppercase transition-colors duration-300 font-Bricolage Grotesque - SemiBold ${
+                    activeTab === item.label
+                      ? "bg-[#A1FF00] border-[#A1FF00] text-black"
+                      : "bg-white/5 border-white/20 text-white"
+                  }`}
+                >
+                  {item.label}
+                </motion.a>
+              ))}
+
+              <motion.a
+                href="https://wa.me/919381726944?text=Hello%20Karthik"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25, duration: 0.25 }}
+                onClick={() => setMobileOpen(false)}
+                className="mt-2 w-full max-w-xs text-center py-4 rounded-full bg-white text-black font-bold text-sm uppercase hover:bg-[#A1FF00] transition-colors font-Bricolage Grotesque - SemiBold"
+              >
+                Say Hello
+              </motion.a>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

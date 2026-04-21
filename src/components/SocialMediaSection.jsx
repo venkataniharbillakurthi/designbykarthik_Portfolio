@@ -50,7 +50,12 @@ const SocialMediaSection = () => {
             
             <div className="grid grid-cols-3 gap-2 items-end">
               {postGridImages.map((src, index) => (
-                <div key={index} className={`rounded-[12px] md:rounded-[20px] overflow-hidden ${index === 0 ? 'scale-90 origin-bottom' : ''} ${index === 1 ? 'scale-95 origin-bottom' : ''}`} >
+                <div
+                  key={index}
+                  className={`rounded-[12px] md:rounded-[20px] overflow-hidden scale-95 origin-bottom ${
+                    index === 0 ? "md:scale-90 md:origin-bottom" : ""
+                  } ${index === 1 ? "md:scale-95 md:origin-bottom" : ""}`}
+                >
                   <img 
                     src={src} 
                     alt={`Social Post ${index + 1}`} 
