@@ -127,7 +127,7 @@ const ExperiencePresence = () => {
           </motion.div>
 
           {/* INSTAGRAM */}
-          <div className="col-start-2 row-start-1 translate-x-0 -translate-y-0 sm:translate-x-1 md:translate-x-8 md:-translate-y-6">
+          <div className="col-start-2 row-start-1 -translate-y-0 md:translate-x-8 md:-translate-y-6">
             {cardShell(instagramCard)}
           </div>
 
@@ -137,7 +137,7 @@ const ExperiencePresence = () => {
           </div>
 
           {/* BEHANCE */}
-          <div className="col-start-2 row-start-3 translate-x-1 -translate-y-2 sm:translate-x-2 sm:-translate-y-4 md:row-start-2 md:translate-x-10 md:-translate-y-10">
+          <div className="col-start-2 row-start-3 -translate-y-2 sm:-translate-y-4 md:row-start-2 md:translate-x-10 md:-translate-y-10">
             {cardShell(behanceCard)}
           </div>
 

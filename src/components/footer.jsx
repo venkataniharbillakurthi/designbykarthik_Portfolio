@@ -2,8 +2,8 @@ import React from 'react'
 
 const footer = () => {
   return (
-    <footer className="mt-14 border-t border-white bg-white/100 px-2 py-2">
-    <p className="text-center text-[11px] sm:text-[12px] md:text-[26px] text-black font-semibold whitespace-nowrap">
+    <footer className="mt-14 border-t border-white bg-white/100 px-2 py-2 overflow-x-hidden">
+    <p className="text-center text-[10px] sm:text-[12px] md:text-[26px] text-black font-semibold break-words">
       <a href="mailto:designbykarthik@gmail.com">
         E-mail : designbykarthik@gmail.com
       </a>
