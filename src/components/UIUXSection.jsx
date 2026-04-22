@@ -29,7 +29,7 @@ const UIUXSection = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="bg-white py-12 md:py-10 px-6 overflow-hidden">
+    <section ref={sectionRef} className="bg-white px-6 overflow-hidden">
       <div className="max-w-[1400px] mx-auto relative">
         
         {/* Title Header - Reduced margin bottom from mb-20 to mb-8 */}
@@ -37,7 +37,7 @@ const UIUXSection = () => {
           <h1 className="font-bold text-black tracking-tighter"  style={{ fontSize: 'clamp(40px, 8vw, 80px)'}}>
             UI/UX DESIGN
           </h1>
-          <p className="text-gray-800 text-lg md:text-xl font-medium leading-relaxed">
+          <p className="text-gray-800 text-lg md:text-xl font-medium leading-relaxed mb-4">
               Designing intuitive, user-focused interfaces that deliver seamless digital experiences.
             </p>
         </div>

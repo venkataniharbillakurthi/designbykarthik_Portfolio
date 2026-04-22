@@ -66,7 +66,7 @@ const ExperiencePresence = () => {
   );
 
   return (
-    <section className="overflow-hidden bg-black bg-[radial-gradient(circle_at_20%_20%,rgba(166,255,0,0.08),transparent_40%)] px-3 py-12 text-white sm:px-4 md:px-8 md:py-16">
+    <section className="overflow-hidden bg-black  px-3 py-12 text-white sm:px-4 md:px-8 md:py-16">
       <div className="mx-auto max-w-[1400px]">
 
         {/* GRID */}

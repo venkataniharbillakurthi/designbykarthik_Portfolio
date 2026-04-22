@@ -29,7 +29,7 @@ const SocialMediaSection = () => {
           <h1 className="font-bold text-black tracking-tighter leading-none" style={{ fontSize: ' clamp(40px, 8vw, 80px)'}}>
             SOCIAL MEDIA
           </h1>
-          <p className="text-gray-600 text-lg md:text-xl mt-4 font-medium">
+          <p className="text-gray-600 text-lg md:text-xl mt-4 font-medium mb-4">
             Logos, identity systems, and visual direction for modern brands.
           </p>
         </div>
