@@ -30,10 +30,10 @@ const AboutSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-black text-[40px] leading-[56px] md:text-[55px] md:leading-[80px] sm:mb-2 mb-1"
+          className="text-black font-extrabold text-[35px] leading-[56px] md:text-[55px] md:leading-[80px] sm:mb-2 mb-1"
           style={{
             fontFamily: "Impact, sans-serif",
-            fontWeight: 400,
+            fontWeight: 800,
             fontStyle: "normal",
             letterSpacing: "0%",
             textTransform: "uppercase",

@@ -153,7 +153,7 @@ const ExperiencePresence = () => {
           <img
             src={THANK_YOU_IMG}
             alt="Thank You"
-            className="max-w-[850px] w-full opacity-95"
+            className="max-w-[850px] w-full "
           />
         </motion.div>
 
