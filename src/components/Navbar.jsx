@@ -4,13 +4,28 @@ import { motion, AnimatePresence } from "framer-motion";
 const navItems = [
   { label: "HOME", href: "#home" },
   { label: "ABOUT", href: "#about" },
+  { label: "SERVICES", href: "#categories" },
   { label: "PROJECT", href: "#branding" },
-  { label: "SERVICES", href: "#social-media" },
+  
 ];
 
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState("HOME");
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const handleNavClick = (item, closeMobile = false) => (event) => {
+    setActiveTab(item.label);
+    if (closeMobile) setMobileOpen(false);
+
+    if (!item.href.startsWith("#")) return;
+
+    const targetSection = document.querySelector(item.href);
+    if (!targetSection) return;
+
+    event.preventDefault();
+    targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", item.href);
+  };
 
   // Close mobile menu on resize to prevent layout glitches
   useEffect(() => {
@@ -79,7 +94,7 @@ const Navbar = () => {
             <a
               key={item.label}
               href={item.href}
-              onClick={() => setActiveTab(item.label)}
+              onClick={handleNavClick(item)}
               className={`relative px-6 py-2 text-[10px] font-bold tracking-widest transition-colors duration-300 z-10 font-Bricolage Grotesque - SemiBold ${
                 activeTab === item.label ? "text-black" : "text-black"
               }`}
@@ -164,10 +179,7 @@ const Navbar = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05 * index, duration: 0.25 }}
-                  onClick={() => {
-                    setActiveTab(item.label);
-                    setMobileOpen(false);
-                  }}
+                  onClick={handleNavClick(item, true)}
                   className={`w-full max-w-xs text-center px-6 py-3 rounded-full border text-sm tracking-[0.2em] font-bold uppercase transition-colors duration-300 font-Bricolage Grotesque - SemiBold ${
                     activeTab === item.label
                       ? "bg-[#A1FF00] border-[#A1FF00] text-black"

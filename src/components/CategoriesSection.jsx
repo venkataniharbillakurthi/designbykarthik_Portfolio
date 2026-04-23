@@ -30,6 +30,7 @@ const CategoriesSection = () => {
 
   return (
     <section
+      id="categories"
       ref={ref}
       className="text-white py-12 md:py-24 overflow-hidden bg-black bg-cover bg-center bg-no-repeat"
       style={{

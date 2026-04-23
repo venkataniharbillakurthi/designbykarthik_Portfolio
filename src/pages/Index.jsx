@@ -11,7 +11,6 @@ import UIUXSection from "@/components/UIUXSection";
 import PrintMediaPortfolio from "@/components/PrintMediaPortfolio";
 import ExperiencePresence from "@/components/ExperiencePresence";
 import Footer from "@/components/footer";
-import { MessageCircle } from "lucide-react";
 const Index = () => {
   return (
     <div className="bg-background text-foreground min-h-screen">
@@ -27,14 +26,17 @@ const Index = () => {
        <Footer />
 
       <a
-        href="https://wa.me/919381726944?text=Hello%20Karthik"
+        href="https://wa.me/919381726944?text=Hi%20Karthik%2C%20I%20came%20across%20your%20portfolio%20and%20I%E2%80%99m%20interested%20in%20working%20with%20you.%20Can%20we%20discuss%3F"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="fixed bottom-4 right-4 z-[60] flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-white shadow-xl transition-transform hover:scale-105"
+        className="fixed bottom-4 right-4 z-[60] block transition-transform hover:scale-105"
       >
-        <MessageCircle size={20} />
-       
+        <img
+          src="https://res.cloudinary.com/dn9lv7p7d/image/upload/v1776947529/whatsapp_ezry29.png"
+          alt="WhatsApp"
+          className="h-14 w-14 rounded-full shadow-xl"
+        />
       </a>
     </div>
   );
