@@ -13,7 +13,7 @@ const ExperiencePresence = () => {
       platform: "Instagram",
       image:
         "https://res.cloudinary.com/dn9lv7p7d/image/upload/v1776410013/Group_66_smgsfx.png",
-      link: "https://www.instagram.com/designbykarthik?igsh=OHFvOWhydG4yNXBo",
+      link: "https://www.instagram.com/designbykarthik.xyz/",
       
     },
     {
